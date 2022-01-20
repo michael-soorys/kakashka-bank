@@ -1,5 +1,6 @@
 
 import os
+import time
 
 from dotenv import dotenv_values, load_dotenv
 from flask import Flask
@@ -19,6 +20,10 @@ userData = pymongo.collection.Collection(db, 'userData')
 def hello_world():
     userData.insert_one({'test2':'malachi smells'})
     return "<p>Hello, World!</p>"
+    
+@app.route('/time')
+def get_current_time():
+    return {'time': time.time()}
 
 if __name__ == "__main__":
     app.run()

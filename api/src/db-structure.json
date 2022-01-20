@@ -1,8 +1,0 @@
-{
-  "user": {
-    "balance": "float",
-    "transactions": {
-      "type": "deposit | withdraw | interest_payout | credit_payout | credit_payment "
-    }
-  }
-}
