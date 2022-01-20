@@ -3,12 +3,15 @@
 ### What is this?
 
 This is a full stack app that uses Flask, React and MongoDB. The purpose of this app is to be a learning tool for me and my little sister. I am learning primarily 
-python by building the app. The app is a bank-like application meant to serve and provide financial education to a single user. It supports weekly:
-- Recurrning deposits (weekly allowance)
-- Regular depostit
+python by building the app. The app is a bank-like application meant to serve and provide financial education to a single user. 
+
+It supports:
+- Recurrning deposits (static weekly allowance)
+- Normal deposits
 - Withdrawals
 - Weekly interest payments at 1.33% to encourage and educate savings and compound interest benefits
 - Crediting at 15%
+- Deez Nuts
 
 ### How does it work?
 
