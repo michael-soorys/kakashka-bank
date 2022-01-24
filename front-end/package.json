@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-api": "cd ../api/src && python -m flask run --no-debugger",
+    "start-api-dev": "export FLASK_ENV=DEV && cd ../api && venv/bin/python src/app.py",
+    "start-api-prod": "export FLASK_ENV=PROD && cd ../api && venv/bin/python src/app.py",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
