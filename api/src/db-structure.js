@@ -1,5 +1,6 @@
 const lololo = {
   user: {
+    _id: 'ObjectId',
     account: 1,
     balance: 'int', // The current balance of the account
     credit: 'int', // What is owed to the bank

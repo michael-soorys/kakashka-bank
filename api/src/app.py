@@ -6,7 +6,7 @@ from dotenv import dotenv_values, load_dotenv
 from flask import Flask
 from flask_pymongo import ObjectId, pymongo
 
-import db_functions
+from Account import Account
 from config import Config
 
 app = Flask(__name__)
@@ -24,7 +24,13 @@ userCollection = pymongo.collection.Collection(db, config['dbCollection'])
 # Initialize the starter document if missing
 userObjTest = userCollection.find_one({"account": 1})
 if userObjTest is None:
-    userCollection.insert_one(db_functions.init_user_document())
+    initAccount = Account()
+    initAccountDict = initAccount.get_user_document_dict()
+    userCollection.insert_one(initAccountDict)
+    print('Initialized the account document')
+    print(initAccountDict)
+    del initAccountDict
+    del initAccount
 
 
 
