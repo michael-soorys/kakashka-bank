@@ -1,5 +1,6 @@
 const lololo = {
   user: {
+    account: 1,
     balance: 'int', // The current balance of the account
     credit: 'int', // What is owed to the bank
     // This balance is set to the account balance at the start of the interest period.

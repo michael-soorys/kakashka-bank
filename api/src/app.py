@@ -4,8 +4,9 @@ import time
 
 from dotenv import dotenv_values, load_dotenv
 from flask import Flask
-from flask_pymongo import pymongo
+from flask_pymongo import ObjectId, pymongo
 
+import db_functions
 from config import Config
 
 app = Flask(__name__)
@@ -18,9 +19,12 @@ config = Config.getConfig(app.config['ENV'])
 connection_string = env['MONGO_URI']
 client = pymongo.MongoClient(connection_string)
 db = client.get_database('main')
-userData = pymongo.collection.Collection(db, config['dbCollection'])
+userCollection = pymongo.collection.Collection(db, config['dbCollection'])
 
 # Initialize the starter document if missing
+userObjTest = userCollection.find_one({"account": 1})
+if userObjTest is None:
+    userCollection.insert_one(db_functions.init_user_document())
 
 
 
@@ -28,7 +32,7 @@ userData = pymongo.collection.Collection(db, config['dbCollection'])
 
 @app.route("/")
 def hello_world():
-    userData.insert_one({'test2':'malachi smells'})
+    userCollection.insert_one({'test2':'malachi smells'})
     return "<p>Hello, World!</p>"
     
 @app.route('/time')
