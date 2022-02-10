@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 
 const App = () => {
-  const [currentTime, setCurrentTime] = useState(0);
+  const [currentBalance, setCurrentBalance] = useState(0);
 
-  const fetchData = async () => {
-    const res = await fetch('/time');
+  const getBalance = async () => {
+    const res = await fetch('/balance', { method: 'GET' });
     console.log(res);
     const data = await res.json();
-    setCurrentTime(data.time);
+    setCurrentBalance(data.time);
 
     return function cleanup() {
       console.log('dead');
@@ -16,13 +16,13 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    getBalance();
   }, []);
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>The current time is {currentTime}.</p>
+        <p>The current balance is {currentBalance}.</p>
       </header>
     </div>
   );

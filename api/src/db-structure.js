@@ -12,13 +12,18 @@ const lololo = {
       type: 'deposit | withdraw | deposit_interest | deposit_recurring | credit_payout | credit_payment ',
       amount: 'int',
       created_at: 'number',
+      _id: 'ObjectId',
+      request_id: 'ObjectId',
     },
     requests: {
       // This is a list of requests for transactions
       type: 'withdraw | deposit | credit',
       status: 'awaiting | approved | declined',
+      amount: 'int',
       created_at: 'number',
       finalized_at: 'number',
+      _id: 'ObjectId',
+      transaction_id: 'ObjectId',
     },
   },
 };
